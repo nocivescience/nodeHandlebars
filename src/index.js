@@ -1,9 +1,10 @@
-const express = require('express');
+import express from 'express';
+import {engine} from 'express-handlebars';
+import path from 'path';
 const app = express();
-const {engine} = require('express-handlebars');
 const port = 3000;
 app.set('views', './src/views');
-app.set('.hbs', engine({
+app.engine('.hbs', engine({
     defaultLayout: 'main',
     extname: '.hbs',
 }))
