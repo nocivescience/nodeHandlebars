@@ -13,6 +13,6 @@ app.get('/', (req, res) => {
         name: 'John Doe',
         message: 'Hello World',
     }
-    res.render('home', data);
+    res.render('index', data);
 });
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
