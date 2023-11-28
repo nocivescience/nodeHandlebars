@@ -5,7 +5,10 @@ const {engine} = require('express-handlebars');
 app.engine('handlebars', engine());
 app.set('views', './src/views');
 app.set('view engine', '.hbs');
-app.engine('.hbs', engine({extname: '.hbs'}));
+app.engine('.hbs', engine({
+    
+    extname: '.hbs'
+}));
 app.get('/', (req, res) => {
     const data={
         name: 'John Doe',
