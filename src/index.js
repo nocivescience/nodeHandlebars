@@ -7,6 +7,7 @@ app.engine('.hbs', engine({
     extname: '.hbs',
     defaultLayout: 'main',
 }));
+app.set('view engine', '.hbs');
 app.get('/', (req, res) => {
     const data ={
         name: 'John Doe',
@@ -14,5 +15,4 @@ app.get('/', (req, res) => {
     }
     res.render('home', data);
 });
-app.set('view engine', '.hbs');
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
