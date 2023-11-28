@@ -3,7 +3,7 @@ const app = express();
 const {engine} = require('express-handlebars');
 const port = 3000;
 app.set('views', './src/views');
-app.set('.hbs', engine({
+app.engine('.hbs', engine({
     defaultLayout: 'main',
     extname: '.hbs',
 }))
