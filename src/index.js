@@ -6,7 +6,7 @@ app.engine('handlebars', engine());
 app.set('views', './src/views');
 app.set('view engine', '.hbs');
 app.engine('.hbs', engine({
-    
+    defaultLayout: 'main',
     extname: '.hbs'
 }));
 app.get('/', (req, res) => {
