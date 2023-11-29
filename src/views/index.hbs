@@ -6,7 +6,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>{{title}}</h1>
-    <p>{{message}}</p>
+    <h1>Lorem ipsum dolor sit.</h1>
+    <ul>
+    {{#each query}}
+        <li>
+            <a href="/{{this.id}}">{{this.asignatura}}</a>
+            <h1>{{this.nota}}</h1>
+            <p>{{this.nota}}</p>
+        </li>
+    {{/each}}
+    </ul>
 </body>
 </html>
