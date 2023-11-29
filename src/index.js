@@ -10,10 +10,21 @@ app.engine('.hbs', engine({
     defaultLayout: 'main',
     extname: '.hbs'
 }));
+app.use(express.urlencoded({extended: false}));
 app.get('/', async(req, res) => {
     const datos= await database.query("SELECT * FROM cuadernos");
     res.render('home', {
       datos: datos.rows
     });
 });
+app.post('/formy', async(req, res) =>{
+  const {asignat, nota, titu}=req.body;
+  try{
+    await database.query("INSERT INTO cuadernos (asignatura, nota, titulo) VALUES ($1, $2, $3)", [asignat, nota, titu]);
+    res.redirect('/');
+    console.log("Datos insertados");
+  }catch(e){
+    console.log(`Error: ${e}`);
+  }
+})
 app.listen(port, () => console.log(`Server listening on port ${port}!`));
