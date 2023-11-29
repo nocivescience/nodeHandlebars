@@ -1,4 +1,5 @@
 const express = require('express');
+const db = require('./db');
 const app = express();
 const port = 3000;
 const {engine} = require('express-handlebars');
@@ -8,12 +9,9 @@ app.engine('.hbs', engine({
     extname: '.hbs',
 }));
 app.set('view engine', '.hbs');
-app.get('/', (req, res) => {
-    const data = {
-        name: 'World',
-        text: 'Hello',
-    };
-    res.render('home', data);
+app.get('/', async(req, res) => {
+    const data = await db.query('SELECT * FROM "cuadernos"')
+    res.render('home', {data: data.rows});
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

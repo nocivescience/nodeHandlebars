@@ -1,2 +1,12 @@
 <h1>Lorem ipsum dolor sit amet.</h1>
 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit quo ut fugiat, quae mollitia eum vero corporis consequatur dicta sit minus tempore! Voluptate et autem rem unde officia minima nihil est amet libero ullam.</p>
+
+<ul>
+    {{#each data}}
+    <li>
+        <h1>{{this.asignatura}}</h1>
+        <h2>{{this.nota}}</h2>
+        <h3>{{this.titulo}}</h3>
+    </li>
+    {{/each}}
+</ul>
