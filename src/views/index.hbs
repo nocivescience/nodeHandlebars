@@ -8,5 +8,14 @@
 <body>
     <h1>Home</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim maiores itaque natus nostrum ut esse id corrupti cum odio distinctio, placeat error vel! Iste odit voluptas molestiae laboriosam? Numquam accusamus eius officia!</p>
+    <ul>
+        {{#each data}}
+        <li>
+            <a href="/product/{{this.id}}">{{this.asignatura}}</a>
+            <h1>{{this.nota}}</h1>
+            <p>{{this.titulo}}</p>
+        </li>
+        {{/each}}
+    </ul>
 </body>
 </html>
