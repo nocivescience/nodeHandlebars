@@ -25,7 +25,7 @@ app.get('/', async(req, res) => {
   res.render('index', {result: result.rows});
 });
 app.post('/mi_form', async(req, res) => {
-  const {asignatura, nota, titulo}= req.query;
+  const {asignatura, nota, titulo}= req.body;
   const query= 'INSERT INTO cuadernos (asignatura, nota, titulo) VALUES ($1, $2, $3)';
   const values= [asignatura, nota, titulo]; 
   try{
