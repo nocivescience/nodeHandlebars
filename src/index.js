@@ -1,4 +1,5 @@
 const express = require('express');
+const database = require('./db');
 const app = express();
 const port = 3000;
 const {engine} = require('express-handlebars');
@@ -9,13 +10,10 @@ app.engine('.hbs', engine({
     defaultLayout: 'main',
     extname: '.hbs'
 }));
-app.get('/', (req, res) => {
-    const data={
-        name: 'John Doe',
-        age: 25,
-        isMale: true,
-        hobbies: ['reading', 'coding', 'swimming']
-    };
-    res.render('home', data);
+app.get('/', async(req, res) => {
+    const datos= await database.query("SELECT * FROM cuadernos");
+    res.render('home', {
+      datos: datos.rows
+    });
 });
 app.listen(port, () => console.log(`Server listening on port ${port}!`));

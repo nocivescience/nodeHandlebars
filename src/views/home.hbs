@@ -1,4 +1,14 @@
 <div>
     <h1>Lorem ipsum dolor sit.</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam veritatis possimus corrupti alias dignissimos nostrum iure porro ratione, dolor qui deleniti odit quisquam, inventore voluptatibus laudantium! Eos harum reprehenderit eligendi ab qui?</p>
+
+    <ul>
+        {{#each datos}}
+        <li>
+            <h2>{{this.asignatura}}</h2>
+            <h3>{{this.nota}}</h3>
+            <h4>{{this.titulo}}</h4>
+        </li>
+        {{/each}}
+    </ul>
 </div>
